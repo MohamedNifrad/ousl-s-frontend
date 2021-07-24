@@ -25,6 +25,8 @@ export class OrderMasterComponent implements OnInit {
     orderQTY: new FormControl('', Validators.required)
   });
 
+  
+  arrayFor = []
   style
   getStyle()
   {
@@ -41,11 +43,7 @@ export class OrderMasterComponent implements OnInit {
     )
   }
 
-  arrayFor = []
-  onCheckedBox(a, b, c)
-  {
-    
-  }
+ 
 
   message
   userSelectStyle
@@ -99,6 +97,24 @@ export class OrderMasterComponent implements OnInit {
         // document.getElementById('error').click()
       }
     )
+  }
+
+  myvalue=0
+
+  onCheckedBox(a, b, c)
+  {
+    console.log(a)
+    console.log(b)
+    console.log(c)
+
+    if(a == true)
+    {
+      this.myvalue = Number(this.myvalue) + Number(c.formValue.orderQTY)
+    }
+    else
+    {
+      this.myvalue = Number(this.myvalue) - Number(c.formValue.orderQTY)
+    }
   }
 
 }

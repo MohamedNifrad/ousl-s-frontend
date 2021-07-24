@@ -89,6 +89,18 @@
                 </form>
 
                 <br>
+                <div class="form-group col-sm-12 row">
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-4">
+                        <input type="text" 
+                        id="myvalue" 
+                        name="myvalue"
+                        [value]="myvalue"
+                        class="form-control-sm form-control input-type" 
+                        style="width: 100%;">
+                    </div>
+                </div>
+                <br>
                 <!-- table -->
                 <div class="Content-wrapper table col-sm-12" style="overflow-x:auto; scroll-behavior: auto;">
                     <table class="table table-bordered table-striped text-center">
@@ -107,7 +119,7 @@
                                 <td>{{row.style[0].item.itemCode}}</td>
                                 <td>{{row.style[0].quantity}}</td>   
                                 <td>{{row.formValue.orderQTY}}</td>         
-                                <td><input type="checkbox" class="form-check-input" (change)="onCheckedBox($event.target.value,i,row)"></td>
+                                <td><input type="checkbox" class="form-check-input" (change)="onCheckedBox($event.target.checked,i,row)"></td>
                             </tr>
                         </tbody>
                     </table>
