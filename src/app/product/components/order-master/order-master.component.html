@@ -1,0 +1,118 @@
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 mx-auto">
+            <div class="Content-wrapper">
+                <form class="form-horizontal" [formGroup]="form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group col-sm-12 row">
+                                <label for="orderNumber" class="col-sm-4">Order Number</label>
+                                <div class="col-sm-8">
+                                    <input type="text" 
+                                    id="orderNumber" 
+                                    name="orderNumber"
+                                    formControlName="orderNumber"
+                                    class="form-control-sm form-control input-type" 
+                                    style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12 row">
+                                <label for="buyer" class="col-sm-4">Buyer</label>
+                                <div class="col-sm-8">
+                                    <select 
+                                            id="buyer" 
+                                            name="buyer"
+                                            formControlName="buyer"
+                                            class="form-control-sm form-control input-type" 
+                                            style="width: 100%;">
+                                        <option value="" disabled hidden selected>--Select--</option>
+                                        <option *ngFor="let c of buyer" value="{{c.id}}">{{c.buyerName}}</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12 row">
+                                <label for="orderQTY" class="col-sm-4">Order QTY</label>
+                                <div class="col-sm-8">
+                                    <input type="text" 
+                                    id="orderQTY" 
+                                    name="orderQTY"
+                                    formControlName="orderQTY"
+                                    class="form-control-sm form-control input-type" 
+                                    style="width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group col-sm-12 row">
+                                <label for="orderDescription" class="col-sm-4">Order Description</label>
+                                <div class="col-sm-8">
+                                    <input type="text" 
+                                    id="orderDescription" 
+                                    name="orderDescription"
+                                    formControlName="orderDescription"
+                                    class="form-control-sm form-control input-type" 
+                                    style="width: 100%;">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-12 row">
+                                <label for="styleNo" class="col-sm-4">Style No</label>
+                                <div class="col-sm-8">
+                                    <select 
+                                            id="styleNo" 
+                                            name="styleNo"
+                                            formControlName="styleNo"
+                                            class="form-control-sm form-control input-type" 
+                                            style="width: 100%;">
+                                        <option value="" disabled hidden selected>--Select--</option>
+                                        <option *ngFor="let c of style" value="{{c.id}}">{{c.styleCode}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <!-- submit button row-->
+                        <div class="col-sm-6">
+
+                        </div>
+                        <div class="col-sm-6 text-right row">
+                            <div class="col-sm-3">
+                                <button type="submit" class="btn btn-main btn-md" [disabled]="!form.valid" (click)="save()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <br>
+                <!-- table -->
+                <div class="Content-wrapper table col-sm-12" style="overflow-x:auto; scroll-behavior: auto;">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Category</th>
+                                <th scope="col">Item Code</th>
+                                <th scope="col">Require QTY</th>
+                                <th scope="col">Order QTY</th>
+                                <th scope="col">Selected QTY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of arrayFor; index as i"> 
+                                <td>{{row.style[0].category.category}}</td>
+                                <td>{{row.style[0].itemCode}}</td>
+                                <td>{{row.style[0].quantity}}</td>   
+                                <td>{{row.formValue.orderQTY}}</td>         
+                                <td><input type="checkbox" class="form-check-input" (change)="onCheckedBox($event.target.value,i,row)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
