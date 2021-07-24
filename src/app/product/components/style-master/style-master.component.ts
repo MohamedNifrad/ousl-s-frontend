@@ -51,9 +51,9 @@ export class StyleMasterComponent implements OnInit {
       "idMy":this.i,
       "styleCode":this.form.get('styleCode').value,
       "styleName":this.form.get('styleName').value,
-      "styleQuantity":this.form.get('styleQuantity').value,
-      "styleStatus":this.form.get('styleStatus').value,
-      "styleType":this.form.get('styleType').value,
+      "quantity":this.form.get('styleQuantity').value,
+      "status":this.form.get('styleStatus').value,
+      "type":this.form.get('styleType').value,
       "category":
       {
         "id":''
@@ -87,30 +87,31 @@ export class StyleMasterComponent implements OnInit {
   onChangeCategory(a, b, c)
   {
     console.log(c.idMy)
-    for(let i = 0; i < this.arrayFor.length; i++)
-    {
-      if(c.idMy = this.arrayFor[i].idMy)
-      {
-        this.arrayFor[i].category.id = a
-      }
-    }
+    console.log(a)
+    console.log(b)
+    console.log(c)
+    this.arrayFor[b].category.id = a
+    // for(let i = 0; i < this.arrayFor.length; i++)
+    // {
+    //   if(c.idMy = this.arrayFor[i].idMy)
+    //   {
+    //     this.arrayFor[i].category.id = a
+    //   }
+    // }
     console.log(this.arrayFor)
-    for(let j = 0; j <this.arrayFor.length; j++)
-    {
-      console.log(this.arrayFor[j])
-    }
   }
 
   onChangeItem(a, b, c)
   {
     console.log(c.idMy)
-    for(let i = 0; i < this.arrayFor.length; i++)
-    {
-      if(c.idMy = this.arrayFor[i].idMy)
-      {
-        this.arrayFor[i].item.id = a
-      }
-    }
+    this.arrayFor[b].item.id = a
+    // for(let i = 0; i < this.arrayFor.length; i++)
+    // {
+    //   if(c.idMy = this.arrayFor[i].idMy)
+    //   {
+    //     this.arrayFor[i].item.id = a
+    //   }
+    // }
     console.log(this.arrayFor)
   }
 
