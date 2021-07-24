@@ -104,7 +104,7 @@
                         <tbody>
                             <tr *ngFor="let row of arrayFor; index as i"> 
                                 <td>{{row.style[0].category.category}}</td>
-                                <td>{{row.style[0].itemCode}}</td>
+                                <td>{{row.style[0].item.itemCode}}</td>
                                 <td>{{row.style[0].quantity}}</td>   
                                 <td>{{row.formValue.orderQTY}}</td>         
                                 <td><input type="checkbox" class="form-check-input" (change)="onCheckedBox($event.target.value,i,row)"></td>
